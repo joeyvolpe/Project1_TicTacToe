@@ -1,0 +1,105 @@
+
+body {
+	/*background-image: url('../images/cityrocket.gif');*/
+	text-align: center;
+	width: 100%;
+}
+
+#container {
+	width: 850px;
+	margin: 0 auto;
+	border: 2px dashed turquoise;
+	border-radius: 25px;
+}
+
+#left-container, #right-container {
+	border-radius: 25px;
+	border: 2px dashed turquoise;
+	background-color: black;
+	margin: 5px;
+	padding: 5px;
+	float: left;
+	width: 250px;
+}
+
+#space {
+	margin: 0 auto;
+	border: 2px dashed turquoise;
+	display: inline-block;
+	width: 50px;
+	height: 50px;
+	vertical-align: top;
+	border-radius: 25px;
+	margin: 5px;
+	padding: 5px;
+	background-color: white;
+}
+
+#image {
+	width: 40px;
+	height: 40px;
+}
+
+#left-panel1, #left-panel2 {
+	border-radius: 25px;
+	border: 2px dashed turquoise;
+	background-color: black;
+	margin: 5px;
+	padding: 5px;
+	float: left;
+	width: 50px;
+	height: 300px;
+}
+
+#right-panel1, #right-panel2 {
+	border-radius: 25px;
+	border: 2px dashed turquoise;
+	background-color: black;
+	margin: 5px;
+	padding: 5px;
+	float: left;
+	width: 50px;
+	height: 300px;
+}
+
+.white-text {
+	color: white;
+	font-size: 10px;
+	background-color: black;
+}
+
+.red-bg {
+    background: red;
+    color: white;
+}
+
+.blue-bg {
+    background: blue;
+    color: white;
+}
+
+.green-bg {
+    background: green;
+    color: white;
+}
+
+.thermometer1, .thermometer2 {
+/*	display: inline-block;
+	vertical-align: top;*/
+	border-radius: 20px;
+	border: 2px dashed turquoise;
+	background-color: black;
+	margin: 5px;
+	padding: 5px;
+	width: 25px;
+	height: 80px;
+}
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html ng-app="ticTacToeApp">
+<head>
+	<link rel="stylesheet" type="text/css" href="css/styles.css">
+	<title>Tic Tac Toe</title>
+</head>
+
+<body ng-controller="TicTacToeController as t">
+
+<div id="container">
+
+	<div class="white-text" id="left-panel1">
+		<label class="white-text">Instructions:</label>
+		1<input class="white-text" type="text" ng-model="t.name1" placeholder="Name">
+		2<input class="white-text" type="number" ng-model="t.numOfGames1" placeholder="Num Games">
+		3<select name="Pick Color 1" ng-model="t.colorPicker1">
+           	<option value="">Pick a color</option>
+           	<option value="red-bg">Red Background</option>
+           	<option value="blue-bg">Blue Background</option>
+           	<option value="green-bg">Green Background</option>
+        </select>
+        4<p>Click a space</p>
+        5<p>Wait for {{ t.name2 }}</p>
+        6<p>Talk smack in chat</p>
+	</div>
+
+	<div id="left-container">
+		<div class="{{t.colorPicker1}}" class="white-text">{{ t.name1 }}</div>
+		<div class="{{t.colorPicker1}}" class="white-text">{{ t.numOfGames1 }}</div>
+		<div id="space" ng-repeat="repeat in t.board1">
+			<img id="image" ng-click="t.placeX(repeat)" ng-src={{repeat.img}}>
+		</div>
+		<div class="{{t.colorPicker1}}" class="white-text">{{ t.name1 }}'s Win Counter</div>
+		<div class="{{t.colorPicker1}}" class="white-text">{{ t.name1 }}'s Smack Chat</div>
+	</div>
+
+	<div id="right-panel1">
+		<div class="thermometer2"></div>
+		<div class="thermometer2"></div>
+		<div class="thermometer2"></div>
+	</div>
+
+	<div class="white-text" id="left-panel2">
+		<label class="white-text">Instructions:</label>
+		1<input class="white-text" type="text" ng-model="t.name2" placeholder="Name">
+		2<input class="white-text" type="number" ng-model="t.numOfGames2" placeholder="Num Games">
+		3<select name="Pick Color 2" ng-model="t.colorPicker2">
+            <option value="">Pick a color</option>
+            <option value="red-bg">Red Background</option>
+            <option value="blue-bg">Blue Background</option>
+            <option value="green-bg">Green Background</option>
+        </select>
+        4<p>Click a space</p>
+        5<p>Wait for {{ t.name1 }}</p>
+        6<p>Talk smack in chat</p>
+	</div>
+
+	<div id="right-container">
+		<div class="{{t.colorPicker2}}" class="white-text">{{ t.name2 }}</div>
+		<div class="{{t.colorPicker2}}" class="white-text">{{ t.numOfGames2 }}</div>
+		<div id="space" ng-repeat="repeat in t.board2">
+			<img id="image" ng-click="t.placeO(repeat)" ng-src={{repeat.img}}>
+		</div>
+		<div class="{{t.colorPicker2}}" class="white-text">{{ t.name2 }}'s Win Counter</div>
+		<div class="{{t.colorPicker2}}" class="white-text">{{ t.name2 }}'s Smack Chat</div>
+	</div>
+
+	<div id="right-panel2">
+		<div class="thermometer2"></div>
+		<div class="thermometer2"></div>
+		<div class="thermometer2"></div>
+	</div>
+
+</div>
+
+<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.15/angular.js"></script>
+<script type="text/javascript" src="js/app.js"></script>
+<script type="text/javascript" src="js/TicTacToeController.js"></script>
+</body>
+</html>
