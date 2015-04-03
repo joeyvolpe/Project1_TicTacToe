@@ -10,6 +10,11 @@ angular
 		ticTacToe.game = syncGameWithFirebase(); //******
 		ticTacToe.playerMove = playerMove; //sets playerMove() function as a property of the controller
 		ticTacToe.getWinner = getWinner;
+		ticTacToe.checkRows = checkRows;
+		ticTacToe.checkColumns = checkColumns;
+		ticTacToe.checkDiagonals = checkDiagonals;
+		ticTacToe.checkCats = checkCats;
+		ticTacToe.resetBoard = resetBoard;
 
 		var x = "images/x.gif";
 		var o = "images/o.jpeg";
@@ -34,7 +39,7 @@ angular
 				for(var i = 0; i < 9; i++){
                gameObject.board.push(
                   {
-                  spaceOccupied: null,
+                  spaceOccupied: "no",
                   occupiedBy: null, 
 						img: white
                   }
@@ -45,30 +50,42 @@ angular
 			return gameObject;
 		}
 
+
+//click only works when game is not over
+
+
 		// bound to ng-click
 		function playerMove($index) {
 
 			if (ticTacToe.game.playerTurn === 1) {
-				if (ticTacToe.game.board[$index].spaceOccupied = "no") {
+				if (ticTacToe.game.board[$index].spaceOccupied === "no") {
 
 					ticTacToe.game.board[$index].spaceOccupied = "yes";
 					ticTacToe.game.board[$index].occupiedBy = "x";
 					ticTacToe.game.board[$index].img = x;
 
 					ticTacToe.game.playerTurn = 0;
-					ticTacToe.game.$save();
 
-					if (getWinner("x") === true) {
-						alert("X wins! Play again.");
+					if (ticTacToe.getWinner("x")) {
+						ticTacToe.game.xScore++;
+						setTimeout(function() {
+							alert("X wins! Play again.", 4000);
+							resetBoard();
+						});					
+					}
+					else if (ticTacToe.checkCats()) {
+						setTimeout(function() {
+							alert("Cats game! Play again.", 4000);
+							resetBoard();
+						});
 					}
 				}
-				else if (ticTacToe.game.board[$index].spaceOccupied = "yes") {
+				else if (ticTacToe.game.board[$index].spaceOccupied === "yes") {
 					alert("Space occupied!");
 				}
 			}
-			else {
-				if (ticTacToe.game.board[$index].spaceOccupied = "no") {
-
+			else if (ticTacToe.game.playerTurn === 0) {
+				if (ticTacToe.game.board[$index].spaceOccupied === "no") {
 					ticTacToe.game.board[$index].spaceOccupied = "yes";
 					ticTacToe.game.board[$index].occupiedBy = "o";
 					ticTacToe.game.board[$index].img = o;
@@ -76,19 +93,34 @@ angular
 					ticTacToe.game.playerTurn = 1;
 					ticTacToe.game.$save();
 
-					if (getWinner("o") === true) {
-						alert("O wins! Play again.");
+					if (ticTacToe.getWinner("o")) {
+						ticTacToe.game.xScore++;
+						setTimeout(function() {
+							alert("O wins! Play again.", 4000);
+							resetBoard();
+						});
 					}
+					if (ticTacToe.checkCats("o")) {
+						setTimeout(function() {
+							alert("Cats game! Play again.", 4000);
+							resetBoard();
+						});
+					}
+					ticTacToe.game.$save();					
 				}
-				else if (ticTacToe.game.board[$index].spaceOccupied = "yes") {
+				else if (ticTacToe.game.board[$index].spaceOccupied === "yes") {
 					alert("Space occupied!");
 				}
 			}
+			ticTacToe.game.$save();
 		}
 
 		function getWinner(player) {
-			if ((checkRows(player) === true) || (checkColumns(player) === true) || (checkDiagonals(player) === true)) {
+			if ((checkRows(player)) || (checkColumns(player)) || (checkDiagonals(player))) {
 				return true;
+			}
+			else {
+				return false;
 			}
 		}
 
@@ -115,13 +147,40 @@ angular
 			}
 		}
 
+		function checkCats() {
+
+			var fullBoard = ticTacToe.game.board.every(function(x){
+				return x.spaceOccupied !== "no";
+			});
+
+			return fullBoard;
+		}
+
+		// 	for (var i=0; i<9; i++){
+		// 		console.log("hey hey hey");
+		// 		if ((ticTacToe.game.board[i].spaceOccupied) === "x" || (ticTacToe.game.board[i].spaceOccupied === "o")) {
+		// 			console.log("errrr");
+		// 			total++;
+		// 			if (total === 9) {
+		// 				return true;
+		// 			}
+		// 		}
+		// 		else {
+		// 			return false;
+		// 		}
+		// 	}
+		// }
+
 		function resetBoard() {
 			for (var i=0; i<9; i++){
 				ticTacToe.game.board[i].img = "images/white.png";
+				ticTacToe.game.board[i].spaceOccupied = "no";
+				ticTacToe.game.board[i].occupiedBy = null;
+				ticTacToe.game.playerTurn = 1;
 			}
+			ticTacToe.game.$save();
 		}
 	}
-
 
 // {
 // 				alert("O wins. Play again!");
