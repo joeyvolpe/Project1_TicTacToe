@@ -5,14 +5,14 @@ body {
 	width: 100%;
 }
 
-#container {
+#big-container {
 	width: 850px;
 	margin: 0 auto;
 	border: 2px dashed turquoise;
 	border-radius: 25px;
 }
 
-#left-container, #right-container {
+#container {
 	border-radius: 25px;
 	border: 2px dashed turquoise;
 	background-color: black;
@@ -40,7 +40,7 @@ body {
 	height: 40px;
 }
 
-#left-panel1, #left-panel2 {
+#left-panel {
 	border-radius: 25px;
 	border: 2px dashed turquoise;
 	background-color: black;
@@ -51,7 +51,7 @@ body {
 	height: 300px;
 }
 
-#right-panel1, #right-panel2 {
+#right-panel {
 	border-radius: 25px;
 	border: 2px dashed turquoise;
 	background-color: black;
@@ -83,7 +83,7 @@ body {
     color: white;
 }
 
-.thermometer1, .thermometer2 {
+.thermometer {
 /*	display: inline-block;
 	vertical-align: top;*/
 	border-radius: 20px;
