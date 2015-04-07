@@ -5,6 +5,9 @@
    <title>Tic Tac Toe</title>
    <link rel="stylesheet" type="text/css" href="css/normalize.css">
 	<link rel="stylesheet" type="text/css" href="css/styles.css">
+   <link rel="stylesheet" type="text/css" href="css/animations.css">
+   <link rel="stylesheet" type="text/css" href="css/animate.css">
+   <link href='http://fonts.googleapis.com/css?family=Monoton' rel='stylesheet' type='text/css'>
 	
 </head>
 
@@ -12,8 +15,22 @@
 
 <div id="big-container">
 
-	<div class="white-text" id="left-panel">
-		<label class="white-text">Instructions:</label>
+	<div id="left-panel">
+      <div id="car-space">
+<!--          <div id="game-name">RaceLA: Westside Edition</div> -->
+         <img id="car-image" src="images/car5.png">
+         <img id="car-image" src="images/car8.png">
+         <img id="car-image" src="images/car10.png">
+      </div>
+   </div>
+
+   <div class="header">
+      <span id="gif">cool &nbsp gif</span> &nbsp tic &nbsp tac &nbsp toe
+   </div>
+   
+
+
+		<!-- <label class="white-text">Instructions:</label>
 		1<input class="white-text" type="text" ng-model="ticTacToe.name" placeholder="Name">
 		2<input class="white-text" type="number" ng-model="ticTacToe.numOfGames" placeholder="Num Games">
 		3<select name="Pick Color" ng-model="ticTacToe.colorPicker">
@@ -24,24 +41,24 @@
         </select>
         4<p>Click a space</p>
         5<p>Wait for {{ ticTacToe.name }}</p>
-        6<p>Talk smack in chat</p>
+        6<p>Talk smack in chat</p> -->
 	</div>
 
 	<div id="container">
-		<div class="{{ticTacToe.colorPicker}}" class="white-text">{{ ticTacToe.name }}</div>
-		<div class="{{ticTacToe.colorPicker}}" class="white-text">{{ ticTacToe.numOfGames }}</div>
+<!-- 		<div class="{{ticTacToe.colorPicker}}" class="white-text">{{ ticTacToe.name }}</div>
+		<div class="{{ticTacToe.colorPicker}}" class="white-text">{{ ticTacToe.numOfGames }}</div> -->
 		<div id="space" ng-repeat="repeat in ticTacToe.game.board">
 			<img id="image" ng-click="ticTacToe.playerMove($index)" ng-src="{{repeat.img}}">
 		</div>
-		<div class="{{ticTacToe.colorPicker}}" class="white-text">{{ ticTacToe.name }}'s Win Counter</div>
-		<div class="{{ticTacToe.colorPicker}}" class="white-text">{{ ticTacToe.name }}'s Smack Chat</div>
+		<!-- <div class="{{ticTacToe.colorPicker}}" class="white-text">{{ ticTacToe.name }}'s Win Counter</div>
+		<div class="{{ticTacToe.colorPicker}}" class="white-text">{{ ticTacToe.name }}'s Smack Chat</div> -->
 	</div>
 
-	<div id="right-panel">
+<!-- 	<div id="right-panel">
 		<div class="thermometer"></div>
 		<div class="thermometer"></div>
 		<div class="thermometer"></div>
-	</div>
+	</div> -->
 
 	<!-- <div class="white-text" id="left-panel2">
 		<label class="white-text">Instructions:</label>
@@ -73,6 +90,14 @@
 		<div class="thermometer2"></div>
 		<div class="thermometer2"></div>
 	</div> -->
+   <div class="header" id="dos1">
+      <span id="gif">cool &nbsp gif</span> &nbsp tic &nbsp tac &nbsp toe
+   </div>
+
+   <div class="header" id="dos2">
+      <span id="gif">cool &nbsp gif</span> &nbsp tic &nbsp tac &nbsp toe
+   </div>
+
 <div> 
 
 

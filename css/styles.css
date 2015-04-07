@@ -1,71 +1,198 @@
 
 body {
-	/*background-image: url('../images/cityrocket.gif');*/
-	text-align: center;
+
+	/*1 map version*/
+/*	background-image: url('../images/map4.png');
+	background-size: cover;
+	background-position: center;
+	background-repeat: no-repeat;
 	width: 100%;
+	height: 100%;*/
+
+	/*1 gif version*/
+	text-align: center;
+	background-color: #767F6D;
 }
 
 #big-container {
-	width: 850px;
+	/*width: 100%;
+	height: 100%;*/
 	margin: 0 auto;
-	border: 2px dashed turquoise;
-	border-radius: 25px;
+	/*background-color: #CDFFA1;*/
+/*	border: 2px dashed turquoise;*/
+	/*background-image: url('../images/map.png');*/
+/*	border-radius: 25px;*/
 }
 
 #container {
-	border-radius: 25px;
-	border: 2px dashed turquoise;
-	background-color: black;
-	margin: 5px;
-	padding: 5px;
-	float: left;
-	width: 250px;
+
+	/*2 gif version*/
+	background-color: #BCCCAF;
+
+	/*2 map version*/
+	/*no action needed*/
+
+
+
+/*	border-radius: 25px;*/
+/*	border: 2px dashed turquoise;*/
+/*	background-color: black;*/
+/*	margin: 5px;
+	padding: 5px;*/
+/*	float: left;*/
+	width: 460px;
+
+/*	transform: rotate(12deg) translate(-55px, -315px);*/
+
+
+	margin: 0 auto;
+	transform: translate(0px, -83px);
+	padding-top: 3px;
+	padding-bottom: 3px;
 }
 
 #space {
-	margin: 0 auto;
-	border: 2px dashed turquoise;
+
+	/*3 gif version*/
+	background-color: #EBFFDA;
+
+	/*3 map version*/
+	/*no action needed*/
+
+/*	margin: 0 auto;*/
+/*	border: 2px dashed turquoise;*/
 	display: inline-block;
-	width: 50px;
-	height: 50px;
-	vertical-align: top;
-	border-radius: 25px;
-	margin: 5px;
-	padding: 5px;
-	background-color: white;
+	width: 140px;
+	height: 140px;
+	padding: 0px;
+
+
+
+
+
+
+
+	/*4 map version*/
+/*	margin-top: -5px;
+	margin-bottom: -5px;
+	margin-left: -1px;
+	margin-right: -1px;*/
+
+	/*4 gif version*/	
+	margin-top: 5px;
+	margin-bottom: 5px;
+	margin-left: 5px;
+	margin-right: 5px;
+
+
+/*	vertical-align: top;*/
+/*	border-radius: 25px;*/
+/*	margin: 5px;
+	padding: 5px;*/
+/*	background-color: white;*/
 }
 
 #image {
-	width: 40px;
-	height: 40px;
+
+	/*5 gif version*/
+	background-color: #EBFFDA;
+
+	/*5 map version*/
+	/*no change needed*/
+
+	width: 140px;
+	height: 140px;
+	padding: 0px;
+	margin: 0px;
+	transition: 2s all;
 }
 
+#gif {
+	transform: rotate(0deg);
+	color: #CDFFA1;
+		
+}
+
+#gif:hover {
+	transfrom: rotate(180deg);
+	transition: 1s all;
+	/*color: #CDFFA1;*/
+/*	font-size: 53px;*/
+/*	font-weight: bold;*/
+}
+
+/*#image: #hover {
+	transfrom: rotate(360deg);
+}*/
+
 #left-panel {
-	border-radius: 25px;
-	border: 2px dashed turquoise;
-	background-color: black;
-	margin: 5px;
-	padding: 5px;
-	float: left;
+/*	border-radius: 25px;*/
+/*	border: 2px dashed turquoise;*/
+/*	background-color: black;*/
+/*	margin: 5px;
+	padding: 5px;*/
+	/*float: left;*/
+	width: 440px;
+	height: 100px;
+/*	transform: translate(100px, 100px);
+	text-align: center;
+	transition: 2s all;*/
+}
+
+/*#left-panel: #hover {
+	transfrom: rotate(360deg);
+}*/
+
+.header {
+	/*transform: rotate(57deg) translate(50px, 21px);*/
+	/*text-align: center;*/
+  	width: 630px;
+  	padding-bottom: 30px;
+  	font-family: 'Monoton', cursive;
+  	color: #EBFFDA;
+  	font-size: 50px;
+  	margin: 0 auto;
+  	transform: rotate(5deg) translate(0px, -75px);
+  	opacity: .85;
+}
+
+/*#game-name {
+	width: 250px;
+	height: 20px;
+	font-size: 17px;
+	font-weight: bold;
+}*/
+
+#car-space {
+	width: 440px;
+	height: 100px;
+	visibility: hidden;
+}
+
+#car-image {
+	display: inline-block;
 	width: 50px;
-	height: 300px;
+	height: 50px;
+/*	margin: 5px;*/
+	padding: 10px;
 }
 
 #right-panel {
-	border-radius: 25px;
+/*	border-radius: 25px;*/
 	border: 2px dashed turquoise;
-	background-color: black;
-	margin: 5px;
-	padding: 5px;
+/*	background-color: black;*/
+/*	margin: 5px;
+	padding: 5px;*/
 	float: left;
-	width: 50px;
-	height: 300px;
+	width: 100px;
+	height: 500px;
+/*	transform: translateX(100px);*/
 }
 
 .white-text {
-	color: white;
-	font-size: 10px;
-	background-color: black;
+/*	color: white;
+	font-size: 10px;*/
+/*	background-color: black;*/
 }
 
 .red-bg {
@@ -86,13 +213,25 @@ body {
 .thermometer {
 /*	display: inline-block;
 	vertical-align: top;*/
-	border-radius: 20px;
+/*	border-radius: 20px;*/
 	border: 2px dashed turquoise;
-	background-color: black;
+/*	background-color: black;*/
 	margin: 5px;
 	padding: 5px;
 	width: 25px;
 	height: 80px;
+}
+
+#dos1 {
+	font-size: 24px;
+	transform: rotate(5deg) translate(-472px, -300px);
+	opacity: .2;
+}
+
+#dos2 {
+	font-size: 24px;
+	transform: rotate(5deg) translate(388px, -435px);
+	opacity: .2;
 }
 
 

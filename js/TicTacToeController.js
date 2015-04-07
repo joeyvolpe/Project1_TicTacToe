@@ -9,21 +9,31 @@ angular
 
 		ticTacToe.game = syncGameWithFirebase(); //******
 		ticTacToe.playerMove = playerMove; //sets playerMove() function as a property of the controller
-		ticTacToe.getWinner = getWinner;
+
 		ticTacToe.checkRows = checkRows;
 		ticTacToe.checkColumns = checkColumns;
 		ticTacToe.checkDiagonals = checkDiagonals;
+
+		ticTacToe.getWinner = getWinner;
 		ticTacToe.checkCats = checkCats;
+
+		ticTacToe.displayResult = displayResult;
 		ticTacToe.resetBoard = resetBoard;
 
-		var x = "images/x.gif";
-		var o = "images/o.jpeg";
-		var white = "images/white.png";
+		// 6 map version
+		// var x = "images/road4.png";
+		// var o = "images/road5.png";
+		// var white = "";
 
-		ticTacToe.name; //bound to text input in index.html
-		// ticTacToe.name2; //bound to text input in index.html
-		ticTacToe.colorPicker; //bound to select drop-down in index.html
-		// ticTacToe.colorPicker2; //bound to select drop-down in index.html
+		// 6 gif version
+		var x = "images/funnygif1.gif";
+		var o = "images/funnygif2.gif";
+		var white = "images/greensquares.jpg";
+
+		// ticTacToe.name; //bound to text input in index.html
+		// // ticTacToe.name2; //bound to text input in index.html
+		// ticTacToe.colorPicker; //bound to select drop-down in index.html
+		// // ticTacToe.colorPicker2; //bound to select drop-down in index.html
 
 		function syncGameWithFirebase(){
 			var ref = new Firebase('https://joeytictactoe.firebaseio.com/tictactoe');
@@ -68,16 +78,10 @@ angular
 
 					if (ticTacToe.getWinner("x")) {
 						ticTacToe.game.xScore++;
-						setTimeout(function() {
-							alert("X wins! Play again.", 4000);
-							resetBoard();
-						});					
+						displayResult("X");					
 					}
 					else if (ticTacToe.checkCats()) {
-						setTimeout(function() {
-							alert("Cats game! Play again.", 4000);
-							resetBoard();
-						});
+						displayResult("Cat");
 					}
 				}
 				else if (ticTacToe.game.board[$index].spaceOccupied === "yes") {
@@ -95,16 +99,10 @@ angular
 
 					if (ticTacToe.getWinner("o")) {
 						ticTacToe.game.xScore++;
-						setTimeout(function() {
-							alert("O wins! Play again.", 4000);
-							resetBoard();
-						});
+						displayResult("O");
 					}
-					if (ticTacToe.checkCats("o")) {
-						setTimeout(function() {
-							alert("Cats game! Play again.", 4000);
-							resetBoard();
-						});
+					if (ticTacToe.checkCats()) {
+						displayResult("Cat");
 					}
 					ticTacToe.game.$save();					
 				}
@@ -173,13 +171,22 @@ angular
 
 		function resetBoard() {
 			for (var i=0; i<9; i++){
-				ticTacToe.game.board[i].img = "images/white.png";
+				ticTacToe.game.board[i].img = white;
 				ticTacToe.game.board[i].spaceOccupied = "no";
 				ticTacToe.game.board[i].occupiedBy = null;
 				ticTacToe.game.playerTurn = 1;
 			}
 			ticTacToe.game.$save();
 		}
+
+		function displayResult(player) {
+
+			setTimeout(function() {
+				alert(player + " wins! Play again.", 5000);
+						resetBoard();
+			});	
+		}
+
 	}
 
 // {
